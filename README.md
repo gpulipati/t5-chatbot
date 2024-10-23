@@ -68,26 +68,26 @@ To fine-tune the model on your own data:
 ## Deployment (Optional)
 You can deploy this model as an API using `Flask` or `FastAPI` to allow users to interact with the chatbot in real time. Here's a simple example of how to set up an API:
 
-```bash
-pip install flask
-from flask import Flask, request, jsonify
-from transformers import T5Tokenizer, T5ForConditionalGeneration
-
-app = Flask(__name__)
-tokenizer = T5Tokenizer.from_pretrained('t5-small')
-model = T5ForConditionalGeneration.from_pretrained('t5-small')
-
-@app.route('/generate', methods=['POST'])
-def generate():
-    data = request.json
-    question = data.get("question")
-    context = data.get("context")
+    ```bash
+    pip install flask
+    from flask import Flask, request, jsonify
+    from transformers import T5Tokenizer, T5ForConditionalGeneration
     
-    answer = generate_answer(question, context)
-    return jsonify({"answer": answer})
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app = Flask(__name__)
+    tokenizer = T5Tokenizer.from_pretrained('t5-small')
+    model = T5ForConditionalGeneration.from_pretrained('t5-small')
+    
+    @app.route('/generate', methods=['POST'])
+    def generate():
+        data = request.json
+        question = data.get("question")
+        context = data.get("context")
+        
+        answer = generate_answer(question, context)
+        return jsonify({"answer": answer})
+    
+    if __name__ == '__main__':
+        app.run(host='0.0.0.0', port=5000)
 
 
 ## Future Improvements
