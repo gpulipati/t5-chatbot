@@ -10,7 +10,7 @@
 - Lightweight, efficient, and deployable for API-based chatbot systems
 
 ## Project Structure
-- `data/`: Contains datasets used for fine-tuning the model (if applicable).
+- `data/`: Contains datasets used for fine-tuning the model.
 - `scripts/`: Python scripts for fine-tuning, inference, and API setup.
 - `model/`: Pre-trained and fine-tuned models, configuration files.
 - `notebooks/`: Google Colab notebook with full model training pipeline.
